@@ -1,0 +1,155 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\China Santiago\\Desktop\\NOTIFi\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|c:\\users\\china santiago\\desktop\\notifi\\notifi\\frmtasks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|solutionrelative:notifi\\frmtasks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|c:\\users\\china santiago\\desktop\\notifi\\notifi\\frmtasks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|solutionrelative:notifi\\frmtasks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|c:\\users\\china santiago\\desktop\\notifi\\notifi\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|solutionrelative:notifi\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|c:\\users\\china santiago\\desktop\\notifi\\notifi\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|solutionrelative:notifi\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|c:\\users\\china santiago\\desktop\\notifi\\notifi\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|solutionrelative:notifi\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|c:\\users\\china santiago\\desktop\\notifi\\notifi\\globals.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|solutionrelative:notifi\\globals.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|c:\\users\\china santiago\\desktop\\notifi\\notifi\\design.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|solutionrelative:notifi\\design.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|c:\\users\\china santiago\\desktop\\notifi\\notifi\\frmsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|solutionrelative:notifi\\frmsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmTasks.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\China Santiago\\Desktop\\NOTIFi\\NOTIFi\\frmTasks.cs",
+              "RelativeDocumentMoniker": "NOTIFi\\frmTasks.cs",
+              "ToolTip": "C:\\Users\\China Santiago\\Desktop\\NOTIFi\\NOTIFi\\frmTasks.cs [Design]",
+              "RelativeToolTip": "NOTIFi\\frmTasks.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T04:50:58.829Z",
+              "IsPinned": true,
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "frmMain.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\China Santiago\\Desktop\\NOTIFi\\NOTIFi\\frmMain.cs",
+              "RelativeDocumentMoniker": "NOTIFi\\frmMain.cs",
+              "ToolTip": "C:\\Users\\China Santiago\\Desktop\\NOTIFi\\NOTIFi\\frmMain.cs [Design]",
+              "RelativeToolTip": "NOTIFi\\frmMain.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T08:06:27.63Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Design.cs",
+              "DocumentMoniker": "C:\\Users\\China Santiago\\Desktop\\NOTIFi\\NOTIFi\\Design.cs",
+              "RelativeDocumentMoniker": "NOTIFi\\Design.cs",
+              "ToolTip": "C:\\Users\\China Santiago\\Desktop\\NOTIFi\\NOTIFi\\Design.cs",
+              "RelativeToolTip": "NOTIFi\\Design.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAQwBcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T06:54:03.499Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Database.cs",
+              "DocumentMoniker": "C:\\Users\\China Santiago\\Desktop\\NOTIFi\\NOTIFi\\Database.cs",
+              "RelativeDocumentMoniker": "NOTIFi\\Database.cs",
+              "ToolTip": "C:\\Users\\China Santiago\\Desktop\\NOTIFi\\NOTIFi\\Database.cs",
+              "RelativeToolTip": "NOTIFi\\Database.cs",
+              "ViewState": "AgIAAHsAAAAAAAAAAAApwJMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T05:27:48.916Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Globals.cs",
+              "DocumentMoniker": "C:\\Users\\China Santiago\\Desktop\\NOTIFi\\NOTIFi\\Globals.cs",
+              "RelativeDocumentMoniker": "NOTIFi\\Globals.cs",
+              "ToolTip": "C:\\Users\\China Santiago\\Desktop\\NOTIFi\\NOTIFi\\Globals.cs",
+              "RelativeToolTip": "NOTIFi\\Globals.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T05:19:29.959Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmTasks.cs",
+              "DocumentMoniker": "C:\\Users\\China Santiago\\Desktop\\NOTIFi\\NOTIFi\\frmTasks.cs",
+              "RelativeDocumentMoniker": "NOTIFi\\frmTasks.cs",
+              "ToolTip": "C:\\Users\\China Santiago\\Desktop\\NOTIFi\\NOTIFi\\frmTasks.cs",
+              "RelativeToolTip": "NOTIFi\\frmTasks.cs",
+              "ViewState": "AgIAAG0AAAAAAAAAAAAjwH8AAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T05:11:10.843Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmMain.cs",
+              "DocumentMoniker": "C:\\Users\\China Santiago\\Desktop\\NOTIFi\\NOTIFi\\frmMain.cs",
+              "RelativeDocumentMoniker": "NOTIFi\\frmMain.cs",
+              "ToolTip": "C:\\Users\\China Santiago\\Desktop\\NOTIFi\\NOTIFi\\frmMain.cs",
+              "RelativeToolTip": "NOTIFi\\frmMain.cs",
+              "ViewState": "AgIAAPEBAAAAAAAAAAAQwAYCAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T04:56:48.443Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "frmSettings.cs",
+              "DocumentMoniker": "C:\\Users\\China Santiago\\Desktop\\NOTIFi\\NOTIFi\\frmSettings.cs",
+              "RelativeDocumentMoniker": "NOTIFi\\frmSettings.cs",
+              "ToolTip": "C:\\Users\\China Santiago\\Desktop\\NOTIFi\\NOTIFi\\frmSettings.cs",
+              "RelativeToolTip": "NOTIFi\\frmSettings.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAowD0AAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T04:08:11.061Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
