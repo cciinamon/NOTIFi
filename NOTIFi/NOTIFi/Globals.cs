@@ -16,7 +16,8 @@
 
 
         //values
-        //public static string Title;
+        public static int User_ID;
+
         //public static string Description;
         //public static string Subject;
         //public static string TargetStartDate;

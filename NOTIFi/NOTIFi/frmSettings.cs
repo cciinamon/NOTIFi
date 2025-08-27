@@ -67,13 +67,11 @@ namespace NOTIFi
             {
                 var builder = new SqlConnectionStringBuilder(connStr);
 
-                // Fill textboxes
                 txtServerName.Text = builder.DataSource;
                 txtDatabaseName.Text = builder.InitialCatalog;
                 txtUsername.Text = builder.UserID;
                 txtPassword.Text = builder.Password;
 
-                // ✅ Update global variables at startup
                 Globals.ServerName = builder.DataSource;
                 Globals.Username = builder.UserID;
                 Globals.Password = builder.Password;

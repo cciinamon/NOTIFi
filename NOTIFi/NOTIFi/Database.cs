@@ -52,7 +52,7 @@ public class Database
 
         try
         {
-            mvstr_cmd = "SELECT * FROM tblToDo WHERE status = 'New'";
+            mvstr_cmd = "SELECT * FROM tblToDo WHERE status = 'New' AND userID = "+ Globals.User_ID + "";
             dt = Globals.db.DBSelect(mvstr_cmd);
         }
         catch (Exception ex)
@@ -69,7 +69,7 @@ public class Database
 
         try
         {
-            mvstr_cmd = "SELECT * FROM tblToDo WHERE status = 'On-going'";
+            mvstr_cmd = "SELECT * FROM tblToDo WHERE status = 'On-going' AND userID = "+ Globals.User_ID + "";
             dt = Globals.db.DBSelect(mvstr_cmd);
         }
         catch (Exception ex)
@@ -86,7 +86,7 @@ public class Database
 
         try
         {
-            mvstr_cmd = "SELECT * FROM tblToDo WHERE status = 'Hold'";
+            mvstr_cmd = "SELECT * FROM tblToDo WHERE status = 'Hold' AND userID = "+ Globals.User_ID + "";
             dt = Globals.db.DBSelect(mvstr_cmd);
         }
         catch (Exception ex)
@@ -103,7 +103,7 @@ public class Database
 
         try
         {
-            mvstr_cmd = "SELECT * FROM tblToDo WHERE status = 'Finished'";
+            mvstr_cmd = "SELECT * FROM tblToDo WHERE status = 'Finished' AND userID = "+ Globals.User_ID + "";
             dt = Globals.db.DBSelect(mvstr_cmd);
         }
         catch (Exception ex)
@@ -120,7 +120,7 @@ public class Database
 
         try
         {
-            mvstr_cmd = "SELECT id, title, status, targetStartDate, targetEndDate FROM tblToDo WHERE CAST(targetStartDate AS DATE) = CAST(GETDATE() AS DATE)";
+            mvstr_cmd = "SELECT id, title, status, targetStartDate, targetEndDate FROM tblToDo WHERE CAST(targetStartDate AS DATE) = CAST(GETDATE() AS DATE) AND userID = "+ Globals.User_ID + "";
             dt = Globals.db.DBSelect(mvstr_cmd);
         }
         catch (Exception ex)
@@ -136,18 +136,61 @@ public class Database
     {
         if(id == -1)
         {
-            mvstr_cmd = "INSERT INTO tblToDo (title,description,subject,targetStartDate,targetEndDate,status,levelPriority) VALUES " + vbCrLf;
-            mvstr_cmd += "('" + title + "', '" + description + "', '" + subject + "', '" + startdate + "'," + vbCrLf;
+            mvstr_cmd = "INSERT INTO tblToDo (userID,title,description,subject,targetStartDate,targetEndDate,status,levelPriority) VALUES " + vbCrLf;
+            mvstr_cmd += "('"+Globals.User_ID+"', '" + title + "', '" + description + "', '" + subject + "', '" + startdate + "'," + vbCrLf;
             mvstr_cmd += "'" + enddate + "', '" + status + "', '" + levelpriority + "')" + vbCrLf;
         }
         else
         {
             mvstr_cmd = "UPDATE tblToDo SET title = '"+title+"', description = '"+description+"', subject='"+subject+"', " + vbCrLf;
             mvstr_cmd += "targetStartDate = '"+ startdate + "', targetEndDate='"+enddate+"', status ='"+status+ "', levelPriority='"+levelpriority+"'" + vbCrLf;
-            mvstr_cmd += "WHERE id = "+ id + "" + vbCrLf;
+            mvstr_cmd += "WHERE id = "+ id + " AND userID = "+ Globals.User_ID + "" + vbCrLf;
         }
 
            
+
+        return DBExecute(mvstr_cmd);
+    }
+
+    public bool CloseToDo(int id = -1)
+    {
+        
+        mvstr_cmd = "UPDATE tblToDo SET status ='Closed'" + vbCrLf;
+        mvstr_cmd += "WHERE id = " + id + " AND userID = "+ Globals.User_ID + "" + vbCrLf;
+       
+        return DBExecute(mvstr_cmd);
+    }
+
+    public DataTable SignIn(string User_username, string User_password)
+    {
+        DataTable dt = null;
+
+        try
+        {
+            mvstr_cmd = "SELECT * FROM tblUsers WHERE username = '"+ User_username + "' AND password = '"+ User_password + "'";
+            dt = Globals.db.DBSelect(mvstr_cmd);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+
+        return dt;
+    }
+
+    public bool UpsertUser(string user, string password, string firstname, string lastname, string email, int userID = -1)
+    {
+        if (userID == -1)
+        {
+            mvstr_cmd = "INSERT INTO tblUsers (username, password, firstname, lastname, email) VALUES " + vbCrLf;
+            mvstr_cmd += " ('"+user+"', '"+password+"', '"+ firstname + "', '"+ lastname + "', '"+ email + "')" + vbCrLf;
+        }
+        else
+        {
+            //mvstr_cmd = "UPDATE tblToDo SET title = '" + title + "', description = '" + description + "', subject='" + subject + "', " + vbCrLf;
+            //mvstr_cmd += "targetStartDate = '" + startdate + "', targetEndDate='" + enddate + "', status ='" + status + "', levelPriority='" + levelpriority + "'" + vbCrLf;
+            //mvstr_cmd += "WHERE id = " + id + "" + vbCrLf;
+        } 
 
         return DBExecute(mvstr_cmd);
     }

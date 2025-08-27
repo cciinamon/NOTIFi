@@ -124,9 +124,6 @@ namespace NOTIFi
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-
-           
-
             if (Globals.db.UpsertToDo(txtTitle.Text, txtDescription.Text, txtSubject.Text, txtStartDate.Text, 
                 txtEndDate.Text, cbStatus.Text, cbPriority.Text, Convert.ToInt32(lblID.Text.Replace("To-Do#: ", "").Trim())))
             {
@@ -157,6 +154,41 @@ namespace NOTIFi
             txtEndDate.Text = DateTime.Now.ToString("MM/dd/yyyy");
             cbStatus.SelectedIndex = -1;
             cbPriority.SelectedIndex = -1;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                "Are you sure you want to close this task?",
+                "Confirmation",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (result == DialogResult.Yes)
+            {
+                if(Globals.db.CloseToDo(Convert.ToInt32(lblID.Text.Replace("To-Do#: ", "").Trim())))
+                {
+                    Clear();
+                    this.Close();
+
+                    if (_mainForm != null)
+                    {
+                        _mainForm.LoadNewTasks();
+                        _mainForm.LoadOnGoingTasks();
+                        _mainForm.LoadOnHoldTasks();
+                        _mainForm.LoadFinishedTasks();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Main form reference is null!");
+                    }
+                }
+            }
+            else
+            {
+
+            }
         }
     }
 }

@@ -16,7 +16,14 @@ namespace NOTIFi
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMain());
+
+            // Show login first
+            frmLogin login = new frmLogin();
+            if (login.ShowDialog() == DialogResult.OK)
+            {
+                // If login succeeded, run the main form as the real main
+                Application.Run(new frmMain());
+            }
         }
     }
 }

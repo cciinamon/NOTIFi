@@ -19,16 +19,19 @@ namespace NOTIFi
         {
             InitializeComponent();
             Globals.settings.LoadConnection();
+
+
+
+
             LoadNewTasks();
             LoadOnGoingTasks();
             LoadOnHoldTasks();
             LoadFinishedTasks();
+            CheckDueTasks();
 
             notifyIcon1 = new NotifyIcon();
             notifyIcon1.Icon = SystemIcons.Information; 
             notifyIcon1.Visible = true;
-
-            CheckDueTasks();
         }
 
         private void databaseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -41,6 +44,7 @@ namespace NOTIFi
         {
             frmTasks tasks = new frmTasks(this);
             tasks.lblID.Visible = false;
+            tasks.btnClose.Visible = false;
             tasks.ShowDialog();
         }
 
@@ -153,6 +157,7 @@ namespace NOTIFi
                         {
                             //MessageBox.Show($"You clicked task {id}: {title}");
                             frmTasks taskForm = new frmTasks(this, id, title, description, subject, status, levelPriority, startDate, endDate);
+                            taskForm.btnClose.Visible = true;
                             taskForm.ShowDialog();
                         };
 
@@ -278,6 +283,7 @@ namespace NOTIFi
                         {
                             //MessageBox.Show($"You clicked task {id}: {title}");
                             frmTasks taskForm = new frmTasks(this, id, title, description, subject, status, levelPriority, startDate, endDate);
+                            taskForm.btnClose.Visible = true;
                             taskForm.ShowDialog();
                         };
 
@@ -403,6 +409,7 @@ namespace NOTIFi
                         {
                             //MessageBox.Show($"You clicked task {id}: {title}");
                             frmTasks taskForm = new frmTasks(this, id, title, description, subject, status, levelPriority, startDate, endDate);
+                            taskForm.btnClose.Visible = true;
                             taskForm.ShowDialog();
                         };
 
@@ -528,6 +535,7 @@ namespace NOTIFi
                         {
                             // MessageBox.Show($"You clicked task {id}: {title}");
                             frmTasks taskForm = new frmTasks(this, id, title, description, subject, status, levelPriority, startDate, endDate);
+                            taskForm.btnClose.Visible = true;
                             taskForm.ShowDialog();
                         };
 
@@ -607,6 +615,10 @@ namespace NOTIFi
             }
         }
 
-
+        private void closedToDoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmToDoList list = new frmToDoList();
+            list.ShowDialog();
+        }
     }
 }

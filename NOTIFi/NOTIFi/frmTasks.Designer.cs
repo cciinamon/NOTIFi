@@ -45,6 +45,7 @@
             this.txtSubject = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.lblID = new MetroFramework.Controls.MetroLabel();
+            this.btnClose = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // metroLabel4
@@ -235,12 +236,29 @@
             this.lblID.Text = "-1";
             this.lblID.Visible = false;
             // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(59)))), ((int)(((byte)(72)))));
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.Location = new System.Drawing.Point(35, 222);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(123, 31);
+            this.btnClose.TabIndex = 30;
+            this.btnClose.Text = "Close the To-Do";
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Visible = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // frmTasks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(511, 271);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.txtSubject);
             this.Controls.Add(this.metroLabel7);
@@ -285,5 +303,6 @@
         private MetroFramework.Controls.MetroTextBox txtSubject;
         private MetroFramework.Controls.MetroLabel metroLabel7;
         public MetroFramework.Controls.MetroLabel lblID;
+        public System.Windows.Forms.Button btnClose;
     }
 }
