@@ -6,11 +6,12 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Tulpep.NotificationWindow;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace NOTIFi
 {
@@ -18,10 +19,17 @@ namespace NOTIFi
     {
 
         frmSettings settings = new frmSettings();
+        private Timer countdownTimer;
 
         public frmMain()
         {
             InitializeComponent();
+
+            countdownTimer = new Timer();
+            countdownTimer.Interval = 1000; // 1 second
+            countdownTimer.Tick += CountdownTimer_Tick;
+            countdownTimer.Start();
+
             Globals.settings.LoadConnection();
 
             LoadNewTasks();
@@ -30,6 +38,36 @@ namespace NOTIFi
             LoadFinishedTasks();
             CheckDueTasks();
 
+            if (Globals.db.GetSystemSetting("EnableRemindEveryHours") == "1")
+            {
+                StartReminderTimer();
+            }
+
+
+            panel3.AutoScrollMinSize = new Size(0, 500); // minimum scroll area
+            panel3.HorizontalScroll.Enabled = false;     // disable horizontal scroll if you want
+            panel3.HorizontalScroll.Visible = false;     // hide horizontal scrollbar
+        }
+
+        private void CountdownTimer_Tick(object sender, EventArgs e)
+        {
+            foreach (Control ctrl in grpOnGoing.Controls)
+            {
+                if (ctrl is Design panel)
+                {
+                    foreach (Control child in panel.Controls)
+                    {
+                        if (child is Label lbl && lbl.Tag is DateTime endDt)
+                        {
+                            TimeSpan ts = endDt - DateTime.Now;
+                            if (ts.TotalSeconds > 0)
+                                lbl.Text = $"{(int)ts.TotalHours:D2}:{ts.Minutes:D2}:{ts.Seconds:D2}";
+                            else
+                                lbl.Text = "Expired";
+                        }
+                    }
+                }
+            }
         }
 
         private void addTodoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -78,7 +116,7 @@ namespace NOTIFi
 
                         
                         panel.BackColor = Color.White;
-                        panel.Size = new Size(240, 100);
+                        panel.Size = new Size(240, 110);
                         panel.Location = new Point(10, y);
 
 
@@ -101,7 +139,7 @@ namespace NOTIFi
                         Label lblDesc = new Label
                         {
                             Text = "Priority: " + levelPriority,
-                            Location = new Point(10, 45),
+                            Location = new Point(10, 55),
                             AutoSize = true
                         };
 
@@ -125,14 +163,14 @@ namespace NOTIFi
                         Label lblStartDate = new Label
                         {
                             Text = "Target Start Date: " + startDate,
-                            Location = new Point(10, 60),
+                            Location = new Point(10, 70),
                             AutoSize = true
                         };
 
                         Label lblEndDate = new Label
                         {
                             Text = "Target End Date: " + endDate,
-                            Location = new Point(10, 75),
+                            Location = new Point(10, 85),
                             AutoSize = true
                         };
 
@@ -204,7 +242,7 @@ namespace NOTIFi
 
 
                         panel.BackColor = Color.White;
-                        panel.Size = new Size(240, 100);
+                        panel.Size = new Size(240, 130);
                         panel.Location = new Point(10, y);
 
 
@@ -227,7 +265,7 @@ namespace NOTIFi
                         Label lblDesc = new Label
                         {
                             Text = "Priority: " + levelPriority,
-                            Location = new Point(10, 45),
+                            Location = new Point(10, 55),
                             AutoSize = true
                         };
 
@@ -251,16 +289,102 @@ namespace NOTIFi
                         Label lblStartDate = new Label
                         {
                             Text = "Target Start Date: " + startDate,
-                            Location = new Point(10, 60),
+                            Location = new Point(10, 70),
                             AutoSize = true
                         };
 
                         Label lblEndDate = new Label
                         {
                             Text = "Target End Date: " + endDate,
-                            Location = new Point(10, 75),
+                            Location = new Point(10, 85),
                             AutoSize = true
                         };
+
+
+                        if (DateTime.TryParse(startDate, out DateTime startDt) && DateTime.TryParse(endDate, out DateTime endDt))
+                        {
+                            endDt = endDt.Date.AddDays(1).AddTicks(-1);
+
+                            int remainingDays = (int)Math.Ceiling((endDt - DateTime.Now).TotalDays);
+
+                            Label lblRemaining = new Label
+                            {
+                                Text = "Remaining Days: " + remainingDays,
+                                Location = new Point(10, 100),
+                                AutoSize = true
+                            };
+
+                            if (remainingDays <= 2)
+                            {
+                                lblRemaining.ForeColor = Color.Red;
+                                lblRemaining.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+                            }
+                            else
+                            {
+                                lblRemaining.ForeColor = Color.Green;
+                                lblRemaining.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+                            }
+
+                            panel.Controls.Add(lblRemaining);
+
+
+                            if (Globals.db.GetSystemSetting("EnableCountdown") == "1")
+                            {
+                                Label lblCountdown = new Label
+                                {
+                                    Location = new Point(140, 100), // a bit more space
+                                    AutoSize = true,
+                                    ForeColor = Color.Black,
+                                    Font = new Font("Segoe UI", 9, FontStyle.Bold),
+                                    Tag = endDt // store adjusted End Date
+                                };
+
+                                // Initial text
+                                TimeSpan ts = endDt - DateTime.Now;
+                                if (ts.TotalSeconds > 0)
+                                    lblCountdown.Text = $"{ts.Days:D2}d {ts.Hours:D2}:{ts.Minutes:D2}:{ts.Seconds:D2}";
+                                else
+                                    lblCountdown.Text = "Expired";
+
+                                panel.Controls.Add(lblCountdown);
+                            }
+                        }
+
+
+                        //if (DateTime.TryParse(startDate, out DateTime startDt) && DateTime.TryParse(endDate, out DateTime endDt))
+                        //{
+                        //    int remainingDays = (endDt - DateTime.Now).Days;
+
+                        //    Label lblRemaining = new Label
+                        //    {
+                        //        Text = "Remaining Days: " + remainingDays,
+                        //        Location = new Point(10, 100),
+                        //        AutoSize = true
+                        //    };
+
+                        //    if (remainingDays <= 2)
+                        //    {
+                        //        lblRemaining.ForeColor = Color.Red;
+                        //        lblRemaining.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+                        //    }
+                        //    else
+                        //    {
+                        //        lblRemaining.ForeColor = Color.Black;
+                        //    }
+
+                        //    panel.Controls.Add(lblRemaining);
+                        //}
+                        //else
+                        //{
+                        //    Label lblRemaining = new Label
+                        //    {
+                        //        Text = "Remaining Days: N/A",
+                        //        Location = new Point(10, 100),
+                        //        AutoSize = true,
+                        //        ForeColor = Color.Gray
+                        //    };
+                        //    panel.Controls.Add(lblRemaining);
+                        //}
 
                         // Add labels to panel
                         panel.Controls.Add(lblId);
@@ -330,7 +454,7 @@ namespace NOTIFi
 
 
                         panel.BackColor = Color.White;
-                        panel.Size = new Size(240, 100);
+                        panel.Size = new Size(240, 110);
                         panel.Location = new Point(10, y);
 
 
@@ -353,7 +477,7 @@ namespace NOTIFi
                         Label lblDesc = new Label
                         {
                             Text = "Priority: " + levelPriority,
-                            Location = new Point(10, 45),
+                            Location = new Point(10, 55),
                             AutoSize = true
                         };
 
@@ -377,14 +501,14 @@ namespace NOTIFi
                         Label lblStartDate = new Label
                         {
                             Text = "Target Start Date: " + startDate,
-                            Location = new Point(10, 60),
+                            Location = new Point(10, 70),
                             AutoSize = true
                         };
 
                         Label lblEndDate = new Label
                         {
                             Text = "Target End Date: " + endDate,
-                            Location = new Point(10, 75),
+                            Location = new Point(10, 85),
                             AutoSize = true
                         };
 
@@ -456,7 +580,7 @@ namespace NOTIFi
 
 
                         panel.BackColor = Color.White;
-                        panel.Size = new Size(240, 100);
+                        panel.Size = new Size(240, 110);
                         panel.Location = new Point(10, y);
 
 
@@ -479,7 +603,7 @@ namespace NOTIFi
                         Label lblDesc = new Label
                         {
                             Text = "Priority: " + levelPriority,
-                            Location = new Point(10, 45),
+                            Location = new Point(10, 55),
                             AutoSize = true
                         };
 
@@ -503,14 +627,14 @@ namespace NOTIFi
                         Label lblStartDate = new Label
                         {
                             Text = "Target Start Date: " + startDate,
-                            Location = new Point(10, 60),
+                            Location = new Point(10, 70),
                             AutoSize = true
                         };
 
                         Label lblEndDate = new Label
                         {
                             Text = "Target End Date: " + endDate,
-                            Location = new Point(10, 75),
+                            Location = new Point(10, 85),
                             AutoSize = true
                         };
 
@@ -542,46 +666,6 @@ namespace NOTIFi
             {
                 MessageBox.Show("Error loading tasks: " + ex.Message);
             }
-        }
-
-        private void txtFrom_Validating(object sender, CancelEventArgs e)
-        {
-            DateTime parsedDate;
-
-            //if (!DateTime.TryParseExact(
-            //    txtFrom.Text,
-            //    "MM/dd/yyyy",
-            //    System.Globalization.CultureInfo.InvariantCulture,
-            //    System.Globalization.DateTimeStyles.None,
-            //    out parsedDate))
-            //{
-            //    e.Cancel = true;
-            //    MessageBox.Show("Please enter a valid date in MM/DD/YYYY format.",
-            //                    "Invalid Date",
-            //                    MessageBoxButtons.OK,
-            //                    MessageBoxIcon.Warning);
-            //    txtFrom.SelectAll();
-            //}
-        }
-
-        private void txtTo_Validating(object sender, CancelEventArgs e)
-        {
-            DateTime parsedDate;
-
-            //if (!DateTime.TryParseExact(
-            //    txtTo.Text,
-            //    "MM/dd/yyyy",
-            //    System.Globalization.CultureInfo.InvariantCulture,
-            //    System.Globalization.DateTimeStyles.None,
-            //    out parsedDate))
-            //{
-            //    e.Cancel = true;
-            //    MessageBox.Show("Please enter a valid date in MM/DD/YYYY format.",
-            //                    "Invalid Date",
-            //                    MessageBoxButtons.OK,
-            //                    MessageBoxIcon.Warning);
-            //    txtTo.SelectAll();
-            //}
         }
 
         private void ShowPopup(string title, string message)
@@ -660,10 +744,53 @@ namespace NOTIFi
             LoadFinishedTasks();
         }
 
-        public void TimerWorker()
+        private void StartReminderTimer()
         {
+            int hours = Convert.ToInt32(Globals.db.GetSystemSetting("RemindEveryHours"));
 
+            Timer reminderTimer = new Timer();
+            reminderTimer.Interval = hours * 60 * 60 * 1000;
+            reminderTimer.Tick += ReminderTimer_Tick;
+
+            ReminderTimer_Tick(null, EventArgs.Empty);
+            reminderTimer.Start();
         }
+
+        private async void ReminderTimer_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                DataTable dt = Globals.db.GetOnGoingTask();
+
+                int val_remainingDays = Convert.ToInt32(Globals.db.GetSystemSetting("RemindDaysBeforeEndDate"));
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    if (DateTime.TryParse(row["targetEndDate"].ToString(), out DateTime endDt))
+                    {
+                        int remainingDays = (endDt - DateTime.Now).Days;
+
+                        if (remainingDays == val_remainingDays)
+                        {
+                            string message =
+                                $"Status: {row["status"]}\n" +
+                                $"Start: {row["targetStartDate"]}\n" +
+                                $"End: {row["targetEndDate"]}";
+
+                            ShowPopup($"Task #{row["id"]}: {row["title"]}", message);
+
+                            await Task.Delay(3000); 
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Reminder error: " + ex.Message);
+            }
+        }
+
+
 
 
 

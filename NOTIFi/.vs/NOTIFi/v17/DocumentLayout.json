@@ -3,40 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\China Santiago\\Documents\\GitHub\\notifi\\NOTIFi\\NOTIFi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|c:\\users\\china santiago\\documents\\github\\notifi\\notifi\\notifi\\notifi\\frmsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|solutionrelative:notifi\\frmsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|C:\\Users\\China Santiago\\Documents\\GitHub\\notifi\\NOTIFi\\NOTIFi\\notifi\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|solutionrelative:notifi\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|C:\\Users\\China Santiago\\Documents\\GitHub\\notifi\\NOTIFi\\NOTIFi\\notifi\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|solutionrelative:notifi\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|c:\\users\\china santiago\\documents\\github\\notifi\\notifi\\notifi\\notifi\\frmsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|solutionrelative:notifi\\frmsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|c:\\users\\china santiago\\documents\\github\\notifi\\notifi\\notifi\\notifi\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|solutionrelative:notifi\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|c:\\users\\china santiago\\documents\\github\\notifi\\notifi\\notifi\\notifi\\frmtodolist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|solutionrelative:notifi\\frmtodolist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|c:\\users\\china santiago\\documents\\github\\notifi\\notifi\\notifi\\notifi\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|solutionrelative:notifi\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|C:\\Users\\China Santiago\\Documents\\GitHub\\notifi\\NOTIFi\\NOTIFi\\notifi\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|solutionrelative:notifi\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|c:\\users\\china santiago\\documents\\github\\notifi\\notifi\\notifi\\notifi\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|solutionrelative:notifi\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|c:\\users\\china santiago\\documents\\github\\notifi\\notifi\\notifi\\notifi\\frmtodolist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|solutionrelative:notifi\\frmtodolist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|c:\\users\\china santiago\\documents\\github\\notifi\\notifi\\notifi\\notifi\\frmtasks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|solutionrelative:notifi\\frmtasks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|c:\\users\\china santiago\\documents\\github\\notifi\\notifi\\notifi\\notifi\\frmtasks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|solutionrelative:notifi\\frmtasks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|C:\\Users\\China Santiago\\Documents\\GitHub\\notifi\\NOTIFi\\NOTIFi\\notifi\\frmsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|solutionrelative:notifi\\frmsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|C:\\Users\\China Santiago\\Documents\\GitHub\\notifi\\NOTIFi\\NOTIFi\\notifi\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E10061B6-3331-4C7D-BC3F-8D7769291887}|NOTIFi\\NOTIFi.csproj|solutionrelative:notifi\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,62 +38,75 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Database.cs",
               "DocumentMoniker": "C:\\Users\\China Santiago\\Documents\\GitHub\\notifi\\NOTIFi\\NOTIFi\\NOTIFi\\Database.cs",
               "RelativeDocumentMoniker": "NOTIFi\\Database.cs",
               "ToolTip": "C:\\Users\\China Santiago\\Documents\\GitHub\\notifi\\NOTIFi\\NOTIFi\\NOTIFi\\Database.cs",
               "RelativeToolTip": "NOTIFi\\Database.cs",
-              "ViewState": "AgIAAEoAAAAAAAAAAAAAAMwAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAANkAAAAAAAAAAAAjwDABAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-27T05:27:48.916Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "frmLogin.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\China Santiago\\Documents\\GitHub\\notifi\\NOTIFi\\NOTIFi\\NOTIFi\\frmLogin.cs",
-              "RelativeDocumentMoniker": "NOTIFi\\frmLogin.cs",
-              "ToolTip": "C:\\Users\\China Santiago\\Documents\\GitHub\\notifi\\NOTIFi\\NOTIFi\\NOTIFi\\frmLogin.cs [Design]",
-              "RelativeToolTip": "NOTIFi\\frmLogin.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-28T05:35:38.07Z",
-              "EditorCaption": " [Design]"
+              "IsPinned": true
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "frmSettings.cs",
-              "DocumentMoniker": "C:\\Users\\China Santiago\\Documents\\GitHub\\notifi\\NOTIFi\\NOTIFi\\NOTIFi\\frmSettings.cs",
-              "RelativeDocumentMoniker": "NOTIFi\\frmSettings.cs",
-              "ToolTip": "C:\\Users\\China Santiago\\Documents\\GitHub\\notifi\\NOTIFi\\NOTIFi\\NOTIFi\\frmSettings.cs",
-              "RelativeToolTip": "NOTIFi\\frmSettings.cs",
-              "ViewState": "AgIAADMAAAAAAAAAAAAWwGgAAAB/AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-28T05:33:33.619Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
               "Title": "frmMain.cs [Design]",
               "DocumentMoniker": "C:\\Users\\China Santiago\\Documents\\GitHub\\notifi\\NOTIFi\\NOTIFi\\NOTIFi\\frmMain.cs",
               "RelativeDocumentMoniker": "NOTIFi\\frmMain.cs",
               "ToolTip": "C:\\Users\\China Santiago\\Documents\\GitHub\\notifi\\NOTIFi\\NOTIFi\\NOTIFi\\frmMain.cs [Design]",
               "RelativeToolTip": "NOTIFi\\frmMain.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-28T05:23:57.616Z",
+              "WhenOpened": "2025-08-28T06:06:59.873Z",
+              "IsPinned": true,
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
+              "Title": "frmTasks.cs",
+              "DocumentMoniker": "C:\\Users\\China Santiago\\Documents\\GitHub\\notifi\\NOTIFi\\NOTIFi\\NOTIFi\\frmTasks.cs",
+              "RelativeDocumentMoniker": "NOTIFi\\frmTasks.cs",
+              "ToolTip": "C:\\Users\\China Santiago\\Documents\\GitHub\\notifi\\NOTIFi\\NOTIFi\\NOTIFi\\frmTasks.cs",
+              "RelativeToolTip": "NOTIFi\\frmTasks.cs",
+              "ViewState": "AgIAAGkAAAAAAAAAAIAwwIUAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-28T14:41:52.237Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "frmTasks.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\China Santiago\\Documents\\GitHub\\notifi\\NOTIFi\\NOTIFi\\NOTIFi\\frmTasks.cs",
+              "RelativeDocumentMoniker": "NOTIFi\\frmTasks.cs",
+              "ToolTip": "C:\\Users\\China Santiago\\Documents\\GitHub\\notifi\\NOTIFi\\NOTIFi\\NOTIFi\\frmTasks.cs [Design]",
+              "RelativeToolTip": "NOTIFi\\frmTasks.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-28T14:41:02.504Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "frmSettings.cs",
+              "DocumentMoniker": "C:\\Users\\China Santiago\\Documents\\GitHub\\notifi\\NOTIFi\\NOTIFi\\NOTIFi\\frmSettings.cs",
+              "RelativeDocumentMoniker": "NOTIFi\\frmSettings.cs",
+              "ToolTip": "C:\\Users\\China Santiago\\Documents\\GitHub\\notifi\\NOTIFi\\NOTIFi\\NOTIFi\\frmSettings.cs",
+              "RelativeToolTip": "NOTIFi\\frmSettings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAYwFUAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-28T07:28:18.315Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "frmSettings.cs [Design]",
               "DocumentMoniker": "C:\\Users\\China Santiago\\Documents\\GitHub\\notifi\\NOTIFi\\NOTIFi\\NOTIFi\\frmSettings.cs",
               "RelativeDocumentMoniker": "NOTIFi\\frmSettings.cs",
@@ -113,53 +118,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "frmMain.cs",
               "DocumentMoniker": "C:\\Users\\China Santiago\\Documents\\GitHub\\notifi\\NOTIFi\\NOTIFi\\NOTIFi\\frmMain.cs",
               "RelativeDocumentMoniker": "NOTIFi\\frmMain.cs",
               "ToolTip": "C:\\Users\\China Santiago\\Documents\\GitHub\\notifi\\NOTIFi\\NOTIFi\\NOTIFi\\frmMain.cs",
               "RelativeToolTip": "NOTIFi\\frmMain.cs",
-              "ViewState": "AgIAAKcAAAAAAAAAAAAMwJgCAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABQAAAAAAAAAAAAowDUAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-28T01:54:38.207Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "frmToDoList.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\China Santiago\\Documents\\GitHub\\notifi\\NOTIFi\\NOTIFi\\NOTIFi\\frmToDoList.cs",
-              "RelativeDocumentMoniker": "NOTIFi\\frmToDoList.cs",
-              "ToolTip": "C:\\Users\\China Santiago\\Documents\\GitHub\\notifi\\NOTIFi\\NOTIFi\\NOTIFi\\frmToDoList.cs [Design]",
-              "RelativeToolTip": "NOTIFi\\frmToDoList.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-28T01:54:09.557Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "frmToDoList.cs",
-              "DocumentMoniker": "C:\\Users\\China Santiago\\Documents\\GitHub\\notifi\\NOTIFi\\NOTIFi\\NOTIFi\\frmToDoList.cs",
-              "RelativeDocumentMoniker": "NOTIFi\\frmToDoList.cs",
-              "ToolTip": "C:\\Users\\China Santiago\\Documents\\GitHub\\notifi\\NOTIFi\\NOTIFi\\NOTIFi\\frmToDoList.cs",
-              "RelativeToolTip": "NOTIFi\\frmToDoList.cs",
-              "ViewState": "AgIAAN8AAAAAAAAAAAAAwPQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-28T04:11:18.812Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "frmTasks.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\China Santiago\\Documents\\GitHub\\notifi\\NOTIFi\\NOTIFi\\NOTIFi\\frmTasks.cs",
-              "RelativeDocumentMoniker": "NOTIFi\\frmTasks.cs",
-              "ToolTip": "C:\\Users\\China Santiago\\Documents\\GitHub\\notifi\\NOTIFi\\NOTIFi\\NOTIFi\\frmTasks.cs [Design]",
-              "RelativeToolTip": "NOTIFi\\frmTasks.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-28T03:05:29.313Z",
-              "EditorCaption": " [Design]"
             }
           ]
         }

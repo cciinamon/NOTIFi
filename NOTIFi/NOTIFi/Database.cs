@@ -187,6 +187,23 @@ public class Database
         return dt;
     }
 
+    public DataTable GetAllOpenTask()
+    {
+        DataTable dt = null;
+
+        try
+        {
+            mvstr_cmd = "SELECT * FROM tblToDo WHERE userID = " + Globals.User_ID + "  AND status = 'On-going';";
+            dt = Globals.db.DBSelect(mvstr_cmd);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+
+        return dt;
+    }
+
     public DataTable GetDueTask()
     {
         DataTable dt = null;

@@ -38,9 +38,12 @@
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.SystemSetting = new MetroFramework.Controls.MetroTabPage();
+            this.btnApply = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.metroTabControl2 = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
+            this.chkEnableCountdown = new System.Windows.Forms.CheckBox();
+            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
             this.chkRemindEveryHours = new System.Windows.Forms.CheckBox();
             this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
             this.txtRemindEveryHours = new MetroFramework.Controls.MetroTextBox();
@@ -57,9 +60,6 @@
             this.DatabaseSettings = new MetroFramework.Controls.MetroTabPage();
             this.btnTest = new System.Windows.Forms.Button();
             this.lblStatus = new MetroFramework.Controls.MetroLabel();
-            this.chkEnableCountdown = new System.Windows.Forms.CheckBox();
-            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
-            this.btnApply = new System.Windows.Forms.Button();
             this.metroTabControl1.SuspendLayout();
             this.SystemSetting.SuspendLayout();
             this.metroTabControl2.SuspendLayout();
@@ -167,6 +167,21 @@
             this.SystemSetting.Text = "System Setting";
             this.SystemSetting.VerticalScrollbarBarColor = true;
             // 
+            // btnApply
+            // 
+            this.btnApply.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(132)))), ((int)(((byte)(227)))));
+            this.btnApply.FlatAppearance.BorderSize = 0;
+            this.btnApply.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnApply.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnApply.ForeColor = System.Drawing.Color.White;
+            this.btnApply.Location = new System.Drawing.Point(326, 292);
+            this.btnApply.Name = "btnApply";
+            this.btnApply.Size = new System.Drawing.Size(123, 31);
+            this.btnApply.TabIndex = 11;
+            this.btnApply.Text = "Apply Changes";
+            this.btnApply.UseVisualStyleBackColor = false;
+            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
+            // 
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(148)))));
@@ -194,12 +209,12 @@
             // 
             // metroTabPage1
             // 
+            this.metroTabPage1.Controls.Add(this.metroLabel9);
             this.metroTabPage1.Controls.Add(this.chkEnableCountdown);
             this.metroTabPage1.Controls.Add(this.metroLabel11);
             this.metroTabPage1.Controls.Add(this.chkRemindEveryHours);
             this.metroTabPage1.Controls.Add(this.metroLabel8);
             this.metroTabPage1.Controls.Add(this.txtRemindEveryHours);
-            this.metroTabPage1.Controls.Add(this.metroLabel9);
             this.metroTabPage1.Controls.Add(this.chkDaysBeforeEndDate);
             this.metroTabPage1.Controls.Add(this.metroCheckBox1);
             this.metroTabPage1.Controls.Add(this.metroLabel6);
@@ -213,19 +228,39 @@
             this.metroTabPage1.Text = "Time";
             this.metroTabPage1.VerticalScrollbarBarColor = true;
             // 
+            // chkEnableCountdown
+            // 
+            this.chkEnableCountdown.AutoSize = true;
+            this.chkEnableCountdown.Location = new System.Drawing.Point(46, 72);
+            this.chkEnableCountdown.Name = "chkEnableCountdown";
+            this.chkEnableCountdown.Size = new System.Drawing.Size(15, 14);
+            this.chkEnableCountdown.TabIndex = 17;
+            this.chkEnableCountdown.UseVisualStyleBackColor = true;
+            // 
+            // metroLabel11
+            // 
+            this.metroLabel11.AutoSize = true;
+            this.metroLabel11.Location = new System.Drawing.Point(61, 68);
+            this.metroLabel11.Name = "metroLabel11";
+            this.metroLabel11.Size = new System.Drawing.Size(225, 19);
+            this.metroLabel11.TabIndex = 15;
+            this.metroLabel11.Text = "Enable countdown in on-going task/s";
+            // 
             // chkRemindEveryHours
             // 
             this.chkRemindEveryHours.AutoSize = true;
+            this.chkRemindEveryHours.BackColor = System.Drawing.Color.White;
             this.chkRemindEveryHours.Location = new System.Drawing.Point(46, 47);
             this.chkRemindEveryHours.Name = "chkRemindEveryHours";
-            this.chkRemindEveryHours.Size = new System.Drawing.Size(15, 14);
+            this.chkRemindEveryHours.Size = new System.Drawing.Size(29, 17);
             this.chkRemindEveryHours.TabIndex = 13;
-            this.chkRemindEveryHours.UseVisualStyleBackColor = true;
+            this.chkRemindEveryHours.Text = " ";
+            this.chkRemindEveryHours.UseVisualStyleBackColor = false;
             // 
             // metroLabel8
             // 
             this.metroLabel8.AutoSize = true;
-            this.metroLabel8.Location = new System.Drawing.Point(350, 43);
+            this.metroLabel8.Location = new System.Drawing.Point(363, 43);
             this.metroLabel8.Name = "metroLabel8";
             this.metroLabel8.Size = new System.Drawing.Size(46, 19);
             this.metroLabel8.TabIndex = 12;
@@ -236,7 +271,7 @@
             this.txtRemindEveryHours.BackColor = System.Drawing.Color.White;
             this.txtRemindEveryHours.CustomBackground = true;
             this.txtRemindEveryHours.CustomForeColor = true;
-            this.txtRemindEveryHours.Location = new System.Drawing.Point(274, 39);
+            this.txtRemindEveryHours.Location = new System.Drawing.Point(295, 39);
             this.txtRemindEveryHours.Name = "txtRemindEveryHours";
             this.txtRemindEveryHours.Size = new System.Drawing.Size(66, 23);
             this.txtRemindEveryHours.TabIndex = 10;
@@ -246,9 +281,9 @@
             this.metroLabel9.AutoSize = true;
             this.metroLabel9.Location = new System.Drawing.Point(61, 43);
             this.metroLabel9.Name = "metroLabel9";
-            this.metroLabel9.Size = new System.Drawing.Size(207, 19);
+            this.metroLabel9.Size = new System.Drawing.Size(233, 19);
             this.metroLabel9.TabIndex = 11;
-            this.metroLabel9.Text = "If to-do starts remind task/s every";
+            this.metroLabel9.Text = "If task in on-going remind task/s every";
             // 
             // chkDaysBeforeEndDate
             // 
@@ -271,7 +306,7 @@
             // metroLabel6
             // 
             this.metroLabel6.AutoSize = true;
-            this.metroLabel6.Location = new System.Drawing.Point(274, 17);
+            this.metroLabel6.Location = new System.Drawing.Point(287, 17);
             this.metroLabel6.Name = "metroLabel6";
             this.metroLabel6.Size = new System.Drawing.Size(139, 19);
             this.metroLabel6.TabIndex = 7;
@@ -282,7 +317,7 @@
             this.txtDaysBeforeEndDate.BackColor = System.Drawing.Color.White;
             this.txtDaysBeforeEndDate.CustomBackground = true;
             this.txtDaysBeforeEndDate.CustomForeColor = true;
-            this.txtDaysBeforeEndDate.Location = new System.Drawing.Point(202, 13);
+            this.txtDaysBeforeEndDate.Location = new System.Drawing.Point(221, 13);
             this.txtDaysBeforeEndDate.Name = "txtDaysBeforeEndDate";
             this.txtDaysBeforeEndDate.Size = new System.Drawing.Size(66, 23);
             this.txtDaysBeforeEndDate.TabIndex = 5;
@@ -292,9 +327,9 @@
             this.metroLabel5.AutoSize = true;
             this.metroLabel5.Location = new System.Drawing.Point(61, 17);
             this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(135, 19);
+            this.metroLabel5.Size = new System.Drawing.Size(159, 19);
             this.metroLabel5.TabIndex = 6;
-            this.metroLabel5.Text = "If to-do starts remind";
+            this.metroLabel5.Text = "If task is on-going remind";
             // 
             // metroTabPage2
             // 
@@ -385,39 +420,6 @@
             this.lblStatus.TabIndex = 8;
             this.lblStatus.Text = "Connection Successful!";
             this.lblStatus.Visible = false;
-            // 
-            // chkEnableCountdown
-            // 
-            this.chkEnableCountdown.AutoSize = true;
-            this.chkEnableCountdown.Location = new System.Drawing.Point(46, 72);
-            this.chkEnableCountdown.Name = "chkEnableCountdown";
-            this.chkEnableCountdown.Size = new System.Drawing.Size(15, 14);
-            this.chkEnableCountdown.TabIndex = 17;
-            this.chkEnableCountdown.UseVisualStyleBackColor = true;
-            // 
-            // metroLabel11
-            // 
-            this.metroLabel11.AutoSize = true;
-            this.metroLabel11.Location = new System.Drawing.Point(61, 68);
-            this.metroLabel11.Name = "metroLabel11";
-            this.metroLabel11.Size = new System.Drawing.Size(225, 19);
-            this.metroLabel11.TabIndex = 15;
-            this.metroLabel11.Text = "Enable countdown in on-going task/s";
-            // 
-            // btnApply
-            // 
-            this.btnApply.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(132)))), ((int)(((byte)(227)))));
-            this.btnApply.FlatAppearance.BorderSize = 0;
-            this.btnApply.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnApply.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnApply.ForeColor = System.Drawing.Color.White;
-            this.btnApply.Location = new System.Drawing.Point(326, 292);
-            this.btnApply.Name = "btnApply";
-            this.btnApply.Size = new System.Drawing.Size(123, 31);
-            this.btnApply.TabIndex = 11;
-            this.btnApply.Text = "Apply Changes";
-            this.btnApply.UseVisualStyleBackColor = false;
-            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
             // 
             // frmSettings
             // 

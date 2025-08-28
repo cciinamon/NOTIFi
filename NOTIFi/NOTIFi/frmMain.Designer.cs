@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.grpNew = new System.Windows.Forms.GroupBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.addATaskToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,8 +58,9 @@
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.cbLevelPriority = new MetroFramework.Controls.MetroComboBox();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
+            this.lblCountdown = new MetroFramework.Controls.MetroLabel();
             this.btnClear = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -73,9 +75,9 @@
             // grpNew
             // 
             this.grpNew.ForeColor = System.Drawing.Color.Black;
-            this.grpNew.Location = new System.Drawing.Point(8, 3);
+            this.grpNew.Location = new System.Drawing.Point(2, -10);
             this.grpNew.Name = "grpNew";
-            this.grpNew.Size = new System.Drawing.Size(260, 506);
+            this.grpNew.Size = new System.Drawing.Size(277, 667);
             this.grpNew.TabIndex = 0;
             this.grpNew.TabStop = false;
             // 
@@ -166,6 +168,7 @@
             // 
             // panel2
             // 
+            this.panel2.AutoScroll = true;
             this.panel2.BackColor = System.Drawing.SystemColors.Control;
             this.panel2.Controls.Add(this.grpNew);
             this.panel2.Location = new System.Drawing.Point(1, 106);
@@ -175,6 +178,7 @@
             // 
             // panel3
             // 
+            this.panel3.AutoScroll = true;
             this.panel3.BackColor = System.Drawing.SystemColors.Control;
             this.panel3.Controls.Add(this.grpOnGoing);
             this.panel3.Location = new System.Drawing.Point(284, 106);
@@ -185,9 +189,9 @@
             // grpOnGoing
             // 
             this.grpOnGoing.ForeColor = System.Drawing.Color.Black;
-            this.grpOnGoing.Location = new System.Drawing.Point(8, 3);
+            this.grpOnGoing.Location = new System.Drawing.Point(0, -12);
             this.grpOnGoing.Name = "grpOnGoing";
-            this.grpOnGoing.Size = new System.Drawing.Size(260, 506);
+            this.grpOnGoing.Size = new System.Drawing.Size(277, 667);
             this.grpOnGoing.TabIndex = 0;
             this.grpOnGoing.TabStop = false;
             // 
@@ -213,6 +217,7 @@
             // 
             // panel5
             // 
+            this.panel5.AutoScroll = true;
             this.panel5.BackColor = System.Drawing.SystemColors.Control;
             this.panel5.Controls.Add(this.grpOnHold);
             this.panel5.Location = new System.Drawing.Point(567, 106);
@@ -223,9 +228,9 @@
             // grpOnHold
             // 
             this.grpOnHold.ForeColor = System.Drawing.Color.Black;
-            this.grpOnHold.Location = new System.Drawing.Point(8, 3);
+            this.grpOnHold.Location = new System.Drawing.Point(2, -12);
             this.grpOnHold.Name = "grpOnHold";
-            this.grpOnHold.Size = new System.Drawing.Size(260, 506);
+            this.grpOnHold.Size = new System.Drawing.Size(277, 667);
             this.grpOnHold.TabIndex = 0;
             this.grpOnHold.TabStop = false;
             // 
@@ -251,6 +256,7 @@
             // 
             // panel7
             // 
+            this.panel7.AutoScroll = true;
             this.panel7.BackColor = System.Drawing.SystemColors.Control;
             this.panel7.Controls.Add(this.grpFinished);
             this.panel7.Location = new System.Drawing.Point(850, 106);
@@ -261,9 +267,9 @@
             // grpFinished
             // 
             this.grpFinished.ForeColor = System.Drawing.Color.Black;
-            this.grpFinished.Location = new System.Drawing.Point(8, 3);
+            this.grpFinished.Location = new System.Drawing.Point(2, -12);
             this.grpFinished.Name = "grpFinished";
-            this.grpFinished.Size = new System.Drawing.Size(260, 506);
+            this.grpFinished.Size = new System.Drawing.Size(277, 667);
             this.grpFinished.TabIndex = 0;
             this.grpFinished.TabStop = false;
             // 
@@ -341,14 +347,14 @@
             this.metroLabel5.TabIndex = 21;
             this.metroLabel5.Text = "Notify:";
             // 
-            // metroLabel6
+            // lblCountdown
             // 
-            this.metroLabel6.AutoSize = true;
-            this.metroLabel6.Location = new System.Drawing.Point(1014, 36);
-            this.metroLabel6.Name = "metroLabel6";
-            this.metroLabel6.Size = new System.Drawing.Size(40, 19);
-            this.metroLabel6.TabIndex = 22;
-            this.metroLabel6.Text = "00:00";
+            this.lblCountdown.AutoSize = true;
+            this.lblCountdown.Location = new System.Drawing.Point(1014, 36);
+            this.lblCountdown.Name = "lblCountdown";
+            this.lblCountdown.Size = new System.Drawing.Size(40, 19);
+            this.lblCountdown.TabIndex = 22;
+            this.lblCountdown.Text = "00:00";
             // 
             // btnClear
             // 
@@ -372,7 +378,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1133, 629);
             this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.metroLabel6);
+            this.Controls.Add(this.lblCountdown);
             this.Controls.Add(this.metroLabel5);
             this.Controls.Add(this.cbLevelPriority);
             this.Controls.Add(this.metroLabel4);
@@ -380,13 +386,13 @@
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel8);
-            this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.panel5);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
@@ -443,8 +449,9 @@
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closedToDoToolStripMenuItem;
         private MetroFramework.Controls.MetroLabel metroLabel5;
-        private MetroFramework.Controls.MetroLabel metroLabel6;
+        private MetroFramework.Controls.MetroLabel lblCountdown;
         public System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
