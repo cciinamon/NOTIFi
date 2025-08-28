@@ -10,18 +10,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Tulpep.NotificationWindow;
 
 namespace NOTIFi
 {
     public partial class frmMain : Form
     {
+
+        frmSettings settings = new frmSettings();
+
         public frmMain()
         {
             InitializeComponent();
             Globals.settings.LoadConnection();
-
-
-
 
             LoadNewTasks();
             LoadOnGoingTasks();
@@ -29,15 +30,6 @@ namespace NOTIFi
             LoadFinishedTasks();
             CheckDueTasks();
 
-            notifyIcon1 = new NotifyIcon();
-            notifyIcon1.Icon = SystemIcons.Information; 
-            notifyIcon1.Visible = true;
-        }
-
-        private void databaseToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmSettings settings = new frmSettings();
-            settings.ShowDialog();
         }
 
         private void addTodoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -48,13 +40,13 @@ namespace NOTIFi
             tasks.ShowDialog();
         }
 
-        public void LoadNewTasks()
+        public void LoadNewTasks(string searchText = "", string searchMode = "")
         {
             grpNew.Controls.Clear(); // Clear previous panels if reloaded
 
             try
             {
-                DataTable dt = Globals.db.GetNewTask(); 
+                DataTable dt = Globals.db.GetNewTask(searchText, searchMode); 
 
                 if (dt != null && dt.Rows.Count > 0)
                 {
@@ -174,13 +166,13 @@ namespace NOTIFi
             }
         }
 
-        public void LoadOnGoingTasks()
+        public void LoadOnGoingTasks(string searchText = "", string searchMode = "")
         {
             grpOnGoing.Controls.Clear(); // Clear previous panels if reloaded
 
             try
             {
-                DataTable dt = Globals.db.GetOnGoingTask();
+                DataTable dt = Globals.db.GetOnGoingTask(searchText, searchMode);
 
                 if (dt != null && dt.Rows.Count > 0)
                 {
@@ -300,13 +292,13 @@ namespace NOTIFi
             }
         }
 
-        public void LoadOnHoldTasks()
+        public void LoadOnHoldTasks(string searchText = "", string searchMode = "")
         {
             grpOnHold.Controls.Clear(); // Clear previous panels if reloaded
 
             try
             {
-                DataTable dt = Globals.db.GetOnHoldTask();
+                DataTable dt = Globals.db.GetOnHoldTask(searchText, searchMode);
 
                 if (dt != null && dt.Rows.Count > 0)
                 {
@@ -426,13 +418,13 @@ namespace NOTIFi
             }
         }
 
-        public void LoadFinishedTasks()
+        public void LoadFinishedTasks(string searchText = "", string searchMode = "")
         {
             grpFinished.Controls.Clear(); // Clear previous panels if reloaded
 
             try
             {
-                DataTable dt = Globals.db.GetFinishedTask();
+                DataTable dt = Globals.db.GetFinishedTask(searchText, searchMode);
 
                 if (dt != null && dt.Rows.Count > 0)
                 {
@@ -556,44 +548,51 @@ namespace NOTIFi
         {
             DateTime parsedDate;
 
-            if (!DateTime.TryParseExact(
-                txtFrom.Text,
-                "MM/dd/yyyy",
-                System.Globalization.CultureInfo.InvariantCulture,
-                System.Globalization.DateTimeStyles.None,
-                out parsedDate))
-            {
-                e.Cancel = true;
-                MessageBox.Show("Please enter a valid date in MM/DD/YYYY format.",
-                                "Invalid Date",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
-                txtFrom.SelectAll();
-            }
+            //if (!DateTime.TryParseExact(
+            //    txtFrom.Text,
+            //    "MM/dd/yyyy",
+            //    System.Globalization.CultureInfo.InvariantCulture,
+            //    System.Globalization.DateTimeStyles.None,
+            //    out parsedDate))
+            //{
+            //    e.Cancel = true;
+            //    MessageBox.Show("Please enter a valid date in MM/DD/YYYY format.",
+            //                    "Invalid Date",
+            //                    MessageBoxButtons.OK,
+            //                    MessageBoxIcon.Warning);
+            //    txtFrom.SelectAll();
+            //}
         }
 
         private void txtTo_Validating(object sender, CancelEventArgs e)
         {
             DateTime parsedDate;
 
-            if (!DateTime.TryParseExact(
-                txtTo.Text,
-                "MM/dd/yyyy",
-                System.Globalization.CultureInfo.InvariantCulture,
-                System.Globalization.DateTimeStyles.None,
-                out parsedDate))
-            {
-                e.Cancel = true;
-                MessageBox.Show("Please enter a valid date in MM/DD/YYYY format.",
-                                "Invalid Date",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
-                txtTo.SelectAll();
-            }
+            //if (!DateTime.TryParseExact(
+            //    txtTo.Text,
+            //    "MM/dd/yyyy",
+            //    System.Globalization.CultureInfo.InvariantCulture,
+            //    System.Globalization.DateTimeStyles.None,
+            //    out parsedDate))
+            //{
+            //    e.Cancel = true;
+            //    MessageBox.Show("Please enter a valid date in MM/DD/YYYY format.",
+            //                    "Invalid Date",
+            //                    MessageBoxButtons.OK,
+            //                    MessageBoxIcon.Warning);
+            //    txtTo.SelectAll();
+            //}
         }
 
+        private void ShowPopup(string title, string message)
+        {
+            PopupNotifier popup = new PopupNotifier();
+            popup.TitleText = title;
+            popup.ContentText = message;
+            popup.Popup();
+        }
 
-        private void CheckDueTasks()
+        private async void CheckDueTasks()
         {
             DataTable dt = Globals.db.GetDueTask();
 
@@ -607,10 +606,10 @@ namespace NOTIFi
                     string startDate = row["targetStartDate"].ToString();
                     string endDate = row["targetEndDate"].ToString();
 
-                    // Show notification
-                    notifyIcon1.BalloonTipTitle = $"Task #{id} Starting Today!";
-                    notifyIcon1.BalloonTipText = $"Title: {title}\nStatus: {status}\nStart Date: {startDate}\nTarget End Date: {endDate}";
-                    notifyIcon1.ShowBalloonTip(10000); 
+                    string message = $"Status: {status}\nStart: {startDate}\nEnd: {endDate}";
+                    ShowPopup($"Task #{id}: {title}", message);
+
+                    await Task.Delay(2000);
                 }
             }
         }
@@ -620,5 +619,55 @@ namespace NOTIFi
             frmToDoList list = new frmToDoList();
             list.ShowDialog();
         }
+
+        private void personalizeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            settings.ShowDialog();
+        }
+
+        private void txtSearch_TextChanged_1(object sender, EventArgs e)
+        {
+            string searchText = txtSearch.Text.Trim();
+            cbLevelPriority.SelectedIndex = -1;
+
+            LoadNewTasks(searchText, "1");
+            LoadOnGoingTasks(searchText, "1");
+            LoadOnHoldTasks(searchText, "1");
+            LoadFinishedTasks(searchText, "1");
+
+
+        }
+
+        private void cbStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string searchText = cbLevelPriority.Text;
+            txtSearch.Text = "";
+
+            LoadNewTasks(searchText, "2");
+            LoadOnGoingTasks(searchText, "2");
+            LoadOnHoldTasks(searchText, "2");
+            LoadFinishedTasks(searchText, "2");
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtSearch.Text = "";
+            cbLevelPriority.SelectedIndex = -1;
+
+            LoadNewTasks();
+            LoadOnGoingTasks();
+            LoadOnHoldTasks();
+            LoadFinishedTasks();
+        }
+
+        public void TimerWorker()
+        {
+
+        }
+
+
+
+
+        //
     }
 }

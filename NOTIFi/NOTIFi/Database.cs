@@ -10,7 +10,6 @@ public class Database
     string mvstr_cmd;
 
    
-
     public DataTable DBSelect(string query)
     {
         var dt = new DataTable();
@@ -46,13 +45,23 @@ public class Database
         }
     }
 
-    public DataTable GetNewTask()
+    public DataTable GetNewTask(string searchText = "", string searchMode = "")
     {
         DataTable dt = null;
 
         try
         {
             mvstr_cmd = "SELECT * FROM tblToDo WHERE status = 'New' AND userID = "+ Globals.User_ID + "";
+
+            if (searchText != "" && searchMode == "1")
+            {
+                mvstr_cmd += "AND (description LIKE  '%" + searchText + "%' OR title LIKE  '%" + searchText + "%' OR id LIKE  '%" + searchText + "%')";
+            }
+            else if (searchText != "" && searchMode == "2")
+            {
+                mvstr_cmd += "AND levelPriority = '" + searchText + "'";
+            }
+
             dt = Globals.db.DBSelect(mvstr_cmd);
         }
         catch (Exception ex)
@@ -63,13 +72,23 @@ public class Database
         return dt;
     }
 
-    public DataTable GetOnGoingTask()
+    public DataTable GetOnGoingTask(string searchText = "", string searchMode = "")
     {
         DataTable dt = null;
 
         try
         {
             mvstr_cmd = "SELECT * FROM tblToDo WHERE status = 'On-going' AND userID = "+ Globals.User_ID + "";
+
+            if (searchText != "" && searchMode == "1")
+            {
+                mvstr_cmd += "AND (description LIKE  '%" + searchText + "%' OR title LIKE  '%" + searchText + "%' OR id LIKE  '%" + searchText + "%')";
+            }
+            else if (searchText != "" && searchMode == "2")
+            {
+                mvstr_cmd += "AND levelPriority = '" + searchText + "'";
+            }
+
             dt = Globals.db.DBSelect(mvstr_cmd);
         }
         catch (Exception ex)
@@ -80,13 +99,23 @@ public class Database
         return dt;
     }
 
-    public DataTable GetOnHoldTask()
+    public DataTable GetOnHoldTask(string searchText = "", string searchMode = "")
     {
         DataTable dt = null;
 
         try
         {
             mvstr_cmd = "SELECT * FROM tblToDo WHERE status = 'Hold' AND userID = "+ Globals.User_ID + "";
+
+            if (searchText != "" && searchMode == "1")
+            {
+                mvstr_cmd += "AND (description LIKE  '%" + searchText + "%' OR title LIKE  '%" + searchText + "%' OR id LIKE  '%" + searchText + "%')";
+            }
+            else if (searchText != "" && searchMode == "2")
+            {
+                mvstr_cmd += "AND levelPriority = '" + searchText + "'";
+            }
+
             dt = Globals.db.DBSelect(mvstr_cmd);
         }
         catch (Exception ex)
@@ -97,13 +126,57 @@ public class Database
         return dt;
     }
 
-    public DataTable GetFinishedTask()
+    public DataTable GetFinishedTask(string searchText = "", string searchMode = "")
     {
         DataTable dt = null;
 
         try
         {
             mvstr_cmd = "SELECT * FROM tblToDo WHERE status = 'Finished' AND userID = "+ Globals.User_ID + "";
+            
+            if (searchText != "" && searchMode == "1")
+            {
+                mvstr_cmd += "AND (description LIKE  '%" + searchText + "%' OR title LIKE  '%" + searchText + "%' OR id LIKE  '%" + searchText + "%')";
+            }
+            else if (searchText != "" && searchMode == "2")
+            {
+                mvstr_cmd += "AND levelPriority = '" + searchText + "'";
+            }
+
+            dt = Globals.db.DBSelect(mvstr_cmd);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+
+        return dt;
+    }
+
+    public DataTable GetClosedTask()
+    {
+        DataTable dt = null;
+
+        try
+        {
+            mvstr_cmd = "SELECT * FROM tblToDo WHERE status = 'Closed' AND userID = " + Globals.User_ID + "";
+            dt = Globals.db.DBSelect(mvstr_cmd);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+
+        return dt;
+    }
+
+    public DataTable GetAllTask()
+    {
+        DataTable dt = null;
+
+        try
+        {
+            mvstr_cmd = "SELECT * FROM tblToDo WHERE userID = " + Globals.User_ID + "";
             dt = Globals.db.DBSelect(mvstr_cmd);
         }
         catch (Exception ex)
@@ -131,7 +204,6 @@ public class Database
         return dt;
     }
 
-
     public bool UpsertToDo(string title, string description, string subject, string startdate, string enddate, string status, string levelpriority, int id = -1)
     {
         if(id == -1)
@@ -146,8 +218,6 @@ public class Database
             mvstr_cmd += "targetStartDate = '"+ startdate + "', targetEndDate='"+enddate+"', status ='"+status+ "', levelPriority='"+levelpriority+"'" + vbCrLf;
             mvstr_cmd += "WHERE id = "+ id + " AND userID = "+ Globals.User_ID + "" + vbCrLf;
         }
-
-           
 
         return DBExecute(mvstr_cmd);
     }
@@ -194,4 +264,83 @@ public class Database
 
         return DBExecute(mvstr_cmd);
     }
+
+    public bool UpsertSystemSetting(int userID, string settingCode, string settingValue)
+    {
+        try
+        {
+            mvstr_cmd = "BEGIN TRANSACTION" + vbCrLf;
+            mvstr_cmd += "DELETE FROM tblSystemSetting where userID = "+ userID + " and settingCode = '" + settingCode + "';" + vbCrLf;
+            mvstr_cmd += "COMMIT TRANSACTION" + vbCrLf;
+            mvstr_cmd += "INSERT INTO tblSystemSetting(userID, settingCode, settingValue, status)" + vbCrLf;
+            mvstr_cmd += $"VALUES ("+ userID + ", '"+ settingCode + "', '"+ settingValue + "', 'A')";
+
+            return DBExecute(mvstr_cmd);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+            return false;
+        }
+
+    }
+
+    public string GetSystemSetting(string settingCode)
+    {
+        DataTable dt;
+        string settingValue = "";
+
+        try
+        {
+            mvstr_cmd = "SELECT * FROM tblSystemSetting WHERE settingCode = '"+ settingCode + "' AND userID = " + Globals.User_ID + "";
+            dt = Globals.db.DBSelect(mvstr_cmd);
+
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                settingValue = dt.Rows[0]["settingValue"].ToString();
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+
+        return settingValue;
+    }
+
+    public DataTable SearchTask(string searchText, string searchMode, string from = "", string to = "")
+    {
+        DataTable dt = null;
+
+        try
+        {
+            if (searchMode == "1")
+            {
+                mvstr_cmd = "SELECT * FROM tblToDo WHERE (description LIKE  '%" + searchText + "%' OR title LIKE  '%" + searchText + "%' OR id LIKE  '%" + searchText + "%') AND userID = " + Globals.User_ID + "";
+
+                if (from != "" || to != "")
+                {
+                    mvstr_cmd += "AND targetStartDate >= '"+ from + "' OR targetEndDate >= '"+ to + "'";
+                }
+            }
+            else if (searchMode == "2")
+            {
+                mvstr_cmd = "SELECT * FROM tblToDo WHERE levelPriority = '" + searchText + "' AND userID = " + Globals.User_ID + "";
+
+                if (from != "" || to != "")
+                {
+                    mvstr_cmd += "AND targetStartDate >= '" + from + "' OR targetEndDate >= '" + to + "'";
+                }
+            }
+            dt = Globals.db.DBSelect(mvstr_cmd);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+
+        return dt;
+    }
+
+
 }

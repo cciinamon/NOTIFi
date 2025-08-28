@@ -28,15 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.grpNew = new System.Windows.Forms.GroupBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.addATaskToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addTodoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.personalizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.databaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.closedToDoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -55,14 +54,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtSearch = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.txtFrom = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
-            this.txtTo = new MetroFramework.Controls.MetroTextBox();
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
-            this.cbStatus = new MetroFramework.Controls.MetroComboBox();
-            this.closedToDoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cbLevelPriority = new MetroFramework.Controls.MetroComboBox();
+            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
+            this.btnClear = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -115,8 +111,7 @@
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.personalizeToolStripMenuItem,
-            this.databaseToolStripMenuItem});
+            this.personalizeToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
             this.settingsToolStripMenuItem.Text = "Settings";
@@ -124,15 +119,9 @@
             // personalizeToolStripMenuItem
             // 
             this.personalizeToolStripMenuItem.Name = "personalizeToolStripMenuItem";
-            this.personalizeToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.personalizeToolStripMenuItem.Text = "Personalize";
-            // 
-            // databaseToolStripMenuItem
-            // 
-            this.databaseToolStripMenuItem.Name = "databaseToolStripMenuItem";
-            this.databaseToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.databaseToolStripMenuItem.Text = "Database Connection";
-            this.databaseToolStripMenuItem.Click += new System.EventHandler(this.databaseToolStripMenuItem_Click);
+            this.personalizeToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.personalizeToolStripMenuItem.Text = "System Setting";
+            this.personalizeToolStripMenuItem.Click += new System.EventHandler(this.personalizeToolStripMenuItem_Click);
             // 
             // viewToolStripMenuItem
             // 
@@ -141,6 +130,13 @@
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             this.viewToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
             this.viewToolStripMenuItem.Text = "View";
+            // 
+            // closedToDoToolStripMenuItem
+            // 
+            this.closedToDoToolStripMenuItem.Name = "closedToDoToolStripMenuItem";
+            this.closedToDoToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.closedToDoToolStripMenuItem.Text = "To-Do List";
+            this.closedToDoToolStripMenuItem.Click += new System.EventHandler(this.closedToDoToolStripMenuItem_Click);
             // 
             // signOutToolStripMenuItem
             // 
@@ -298,8 +294,9 @@
             this.txtSearch.CustomForeColor = true;
             this.txtSearch.Location = new System.Drawing.Point(132, 34);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(285, 23);
+            this.txtSearch.Size = new System.Drawing.Size(311, 23);
             this.txtSearch.TabIndex = 13;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged_1);
             // 
             // metroLabel1
             // 
@@ -310,84 +307,63 @@
             this.metroLabel1.TabIndex = 14;
             this.metroLabel1.Text = "Search Task | To-do";
             // 
-            // metroLabel2
-            // 
-            this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(765, 34);
-            this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(108, 19);
-            this.metroLabel2.TabIndex = 15;
-            this.metroLabel2.Text = "Filter Date From:";
-            // 
-            // txtFrom
-            // 
-            this.txtFrom.BackColor = System.Drawing.Color.White;
-            this.txtFrom.CustomBackground = true;
-            this.txtFrom.CustomForeColor = true;
-            this.txtFrom.Location = new System.Drawing.Point(877, 32);
-            this.txtFrom.Name = "txtFrom";
-            this.txtFrom.Size = new System.Drawing.Size(96, 23);
-            this.txtFrom.TabIndex = 16;
-            this.txtFrom.Text = "MM/dd/YYYY";
-            this.txtFrom.Validating += new System.ComponentModel.CancelEventHandler(this.txtFrom_Validating);
-            // 
-            // metroLabel3
-            // 
-            this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(976, 34);
-            this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(42, 19);
-            this.metroLabel3.TabIndex = 17;
-            this.metroLabel3.Text = "- To -";
-            // 
-            // txtTo
-            // 
-            this.txtTo.BackColor = System.Drawing.Color.White;
-            this.txtTo.CustomBackground = true;
-            this.txtTo.CustomForeColor = true;
-            this.txtTo.Location = new System.Drawing.Point(1020, 32);
-            this.txtTo.Name = "txtTo";
-            this.txtTo.Size = new System.Drawing.Size(97, 23);
-            this.txtTo.TabIndex = 18;
-            this.txtTo.Text = "MM/dd/YYYY";
-            this.txtTo.Validating += new System.ComponentModel.CancelEventHandler(this.txtTo_Validating);
-            // 
-            // notifyIcon1
-            // 
-            this.notifyIcon1.Text = "notifyIcon1";
-            this.notifyIcon1.Visible = true;
-            // 
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(469, 34);
+            this.metroLabel4.Location = new System.Drawing.Point(469, 36);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(100, 19);
             this.metroLabel4.TabIndex = 19;
             this.metroLabel4.Text = "Level of Priority";
             // 
-            // cbStatus
+            // cbLevelPriority
             // 
-            this.cbStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbStatus.FontSize = MetroFramework.MetroLinkSize.Small;
-            this.cbStatus.FormattingEnabled = true;
-            this.cbStatus.ItemHeight = 19;
-            this.cbStatus.Items.AddRange(new object[] {
-            "New",
-            "On-going",
-            "Hold",
-            "Finished"});
-            this.cbStatus.Location = new System.Drawing.Point(575, 32);
-            this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(163, 25);
-            this.cbStatus.TabIndex = 20;
+            this.cbLevelPriority.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbLevelPriority.FontSize = MetroFramework.MetroLinkSize.Small;
+            this.cbLevelPriority.FormattingEnabled = true;
+            this.cbLevelPriority.ItemHeight = 19;
+            this.cbLevelPriority.Items.AddRange(new object[] {
+            "Critical ",
+            "High ",
+            "Low"});
+            this.cbLevelPriority.Location = new System.Drawing.Point(575, 32);
+            this.cbLevelPriority.Name = "cbLevelPriority";
+            this.cbLevelPriority.Size = new System.Drawing.Size(163, 25);
+            this.cbLevelPriority.TabIndex = 20;
+            this.cbLevelPriority.SelectedIndexChanged += new System.EventHandler(this.cbStatus_SelectedIndexChanged);
             // 
-            // closedToDoToolStripMenuItem
+            // metroLabel5
             // 
-            this.closedToDoToolStripMenuItem.Name = "closedToDoToolStripMenuItem";
-            this.closedToDoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.closedToDoToolStripMenuItem.Text = "To-Do List";
-            this.closedToDoToolStripMenuItem.Click += new System.EventHandler(this.closedToDoToolStripMenuItem_Click);
+            this.metroLabel5.AutoSize = true;
+            this.metroLabel5.Location = new System.Drawing.Point(965, 36);
+            this.metroLabel5.Name = "metroLabel5";
+            this.metroLabel5.Size = new System.Drawing.Size(47, 19);
+            this.metroLabel5.TabIndex = 21;
+            this.metroLabel5.Text = "Notify:";
+            // 
+            // metroLabel6
+            // 
+            this.metroLabel6.AutoSize = true;
+            this.metroLabel6.Location = new System.Drawing.Point(1014, 36);
+            this.metroLabel6.Name = "metroLabel6";
+            this.metroLabel6.Size = new System.Drawing.Size(40, 19);
+            this.metroLabel6.TabIndex = 22;
+            this.metroLabel6.Text = "00:00";
+            // 
+            // btnClear
+            // 
+            this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(59)))), ((int)(((byte)(72)))));
+            this.btnClear.FlatAppearance.BorderSize = 0;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.ForeColor = System.Drawing.Color.White;
+            this.btnClear.Location = new System.Drawing.Point(760, 32);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(97, 25);
+            this.btnClear.TabIndex = 32;
+            this.btnClear.Text = "Clear Searches";
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // frmMain
             // 
@@ -395,12 +371,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1133, 629);
-            this.Controls.Add(this.cbStatus);
+            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.metroLabel6);
+            this.Controls.Add(this.metroLabel5);
+            this.Controls.Add(this.cbLevelPriority);
             this.Controls.Add(this.metroLabel4);
-            this.Controls.Add(this.txtTo);
-            this.Controls.Add(this.metroLabel3);
-            this.Controls.Add(this.txtFrom);
-            this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.panel7);
@@ -443,7 +418,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem addATaskToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem databaseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem signOutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addTodoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem personalizeToolStripMenuItem;
@@ -464,15 +438,13 @@
         private System.Windows.Forms.Label label4;
         private MetroFramework.Controls.MetroTextBox txtSearch;
         private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroLabel metroLabel2;
-        private MetroFramework.Controls.MetroTextBox txtFrom;
-        private MetroFramework.Controls.MetroLabel metroLabel3;
-        private MetroFramework.Controls.MetroTextBox txtTo;
-        private System.Windows.Forms.NotifyIcon notifyIcon1;
         private MetroFramework.Controls.MetroLabel metroLabel4;
-        private MetroFramework.Controls.MetroComboBox cbStatus;
+        private MetroFramework.Controls.MetroComboBox cbLevelPriority;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closedToDoToolStripMenuItem;
+        private MetroFramework.Controls.MetroLabel metroLabel5;
+        private MetroFramework.Controls.MetroLabel metroLabel6;
+        public System.Windows.Forms.Button btnClear;
     }
 }
 

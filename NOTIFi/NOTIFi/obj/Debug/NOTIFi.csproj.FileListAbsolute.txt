@@ -30,3 +30,4 @@ C:\Users\China Santiago\Documents\GitHub\notifi\NOTIFi\NOTIFi\NOTIFi\obj\Debug\N
 C:\Users\China Santiago\Documents\GitHub\notifi\NOTIFi\NOTIFi\NOTIFi\obj\Debug\NOTIFi.pdb
 C:\Users\China Santiago\Documents\GitHub\notifi\NOTIFi\NOTIFi\NOTIFi\obj\Debug\NOTIFi.frmToDoList.resources
 C:\Users\China Santiago\Documents\GitHub\notifi\NOTIFi\NOTIFi\NOTIFi\obj\Debug\NOTIFi.frmLogin.resources
+C:\Users\China Santiago\Documents\GitHub\notifi\NOTIFi\NOTIFi\NOTIFi\bin\Debug\Tulpep.NotificationWindow.dll

@@ -12,6 +12,8 @@ namespace NOTIFi
             InitializeComponent();
             LoadConnection();
             lblStatus.Visible = false;
+
+            LoadSystemSetting();
         }
 
         private void btnTest_Click(object sender, EventArgs e)
@@ -48,7 +50,6 @@ namespace NOTIFi
             }
         }
 
-
         private void SaveConnection(string server, string database, string username, string password)
         {
             string newConn = $"Server={server};Database={database};User Id={username};Password={password};";
@@ -79,6 +80,36 @@ namespace NOTIFi
 
                 Globals.ConnectionString = connStr;
             }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            SaveSettings();
+            this.Close();
+        }
+
+        private void LoadSystemSetting()
+        {
+            txtDaysBeforeEndDate.Text = Globals.db.GetSystemSetting("RemindDaysBeforeEndDate");
+            chkRemindEveryHours.Checked = Globals.db.GetSystemSetting("EnableRemindEveryHours") == "1";
+            txtRemindEveryHours.Text = Globals.db.GetSystemSetting("RemindEveryHours");
+            chkDaysBeforeEndDate.Checked = Globals.db.GetSystemSetting("EnableRemindDaysBeforeEndDate") == "1";
+            chkEnableCountdown.Checked = Globals.db.GetSystemSetting("EnableCountdown") == "1";
+
+        }
+
+        private void SaveSettings()
+        {
+            Globals.db.UpsertSystemSetting(Globals.User_ID, "RemindDaysBeforeEndDate", txtDaysBeforeEndDate.Text);
+            Globals.db.UpsertSystemSetting(Globals.User_ID, "RemindEveryHours", txtRemindEveryHours.Text);
+            Globals.db.UpsertSystemSetting(Globals.User_ID, "EnableRemindEveryHours", chkRemindEveryHours.Checked ? "1" : "0");
+            Globals.db.UpsertSystemSetting(Globals.User_ID, "EnableRemindDaysBeforeEndDate", chkDaysBeforeEndDate.Checked ? "1" : "0");
+            Globals.db.UpsertSystemSetting(Globals.User_ID, "EnableCountdown", chkEnableCountdown.Checked ? "1" : "0");
+        }
+
+        private void btnApply_Click(object sender, EventArgs e)
+        {
+            SaveSettings();
         }
     }
 }
